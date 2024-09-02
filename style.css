@@ -1,0 +1,361 @@
+* {
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-bottom: 3rem;
+  padding-top: 0.2rem;
+}
+/********** MENU *********/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: rgb(138, 210, 255);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 140px;
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li:last-child {
+  margin-right: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s;
+  text-align: end;
+}
+
+.menu a:hover {
+  color: rgb(255, 72, 133);
+}
+
+.burger {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.burger .line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  margin-bottom: 5px;
+  transition: 0.2s linear;
+}
+.burger {
+  display: none;
+}
+@media screen and (max-width: 800px) {
+  .menu {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  .burger.active .line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    transition: 0.2s linear;
+  }
+
+  .burger.active .line:nth-child(2) {
+    opacity: 0;
+    transition: 0.15s linear;
+  }
+
+  .burger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    transition: 0.2s linear;
+  }
+
+  nav.active .menu {
+    display: block;
+    background-color: rgb(245, 236, 220);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  nav.active .menu li {
+    margin: 10px 20px;
+  }
+
+  nav.active .menu a {
+    font-size: 24px;
+  }
+}
+/********** MENU SLUTT **********/
+
+/* produkter*/
+@media (min-width: 750px) {
+  .box-produkter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fire like store kolonner */
+    gap: 20px; /* Avstand mellom produktene */
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Begrens bredden til 100% av grid-cellen */
+    display: flex;
+    flex-direction: column; /* Slik at teksten kommer under bildet */
+    align-items: center; /* Sentrer innholdet horisontalt */
+  }
+
+  .image-container img {
+    width: auto;
+    height: auto;
+    max-width: 100%; /* Sørg for at bildet ikke blir bredere enn containeren */
+    display: block;
+  }
+
+  .tekst {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+  }
+
+  .h33 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /*produkter ferdig*/
+  /*produkt*/
+  img {
+    width: 100%;
+  }
+  .bilde_puma {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding-top: 1rem;
+  }
+
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .bilde_meg {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0rem;
+  }
+  .h1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tekst_puma {
+    grid-column: 1;
+    grid-row: 1;
+    padding-top: 8.7rem;
+    padding-left: 0.5rem;
+  }
+  /*produkt ferdig*/
+  /*kategorier*/
+  .box_kategorier {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5,
+  .box6 {
+    width: 200px;
+    height: 100px;
+    background-color: #42d6ff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 50px;
+  }
+
+  .box5 a,
+  .box6 a,
+  .box4 a,
+  .box3 a,
+  .box2 a,
+  .box1 a {
+    color: rgb(22, 24, 185);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  .box5:hover a,
+  .box6:hover a,
+  .box4:hover a,
+  .box3:hover a,
+  .box2:hover a,
+  .box1:hover a {
+    opacity: 1;
+    color: palevioletred;
+  }
+  /*kategorier ferdig*/
+}
+@media (max-width: 750px) {
+  /*kategorier*/
+  .box_kategorier {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0.5rem;
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .box4,
+  .box5,
+  .box6 {
+    width: 370px;
+    height: 100px;
+    background-color: #42d6ff;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border-radius: 50px;
+  }
+
+  .box5 a,
+  .box6 a,
+  .box4 a,
+  .box3 a,
+  .box2 a,
+  .box1 a {
+    color: rgb(22, 24, 185);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+  .box5:hover a,
+  .box6:hover a,
+  .box4:hover a,
+  .box3:hover a,
+  .box2:hover a,
+  .box1:hover a {
+    opacity: 1;
+    color: palevioletred;
+  }
+  /*kategorier ferdig*/
+  /*produkt*/
+  img {
+    width: 100%;
+  }
+  .bilde_puma {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding-top: 1rem;
+  }
+
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .bilde_meg {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0rem;
+  }
+  .h1 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tekst_puma {
+    grid-column: 1;
+    grid-row: 2;
+
+    padding-left: 0.5rem;
+  }
+  /*produkt ferdig*/
+
+  /*produkter*/
+  .box-produkter {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%; /* Begrens bredden til 100% av grid-cellen */
+    display: flex;
+    flex-direction: column; /* Slik at teksten kommer under bildet */
+    align-items: center; /* Sentrer innholdet horisontalt */
+  }
+
+  .image-container img {
+    width: auto;
+    height: auto;
+    max-width: 100%; /* Sørg for at bildet ikke blir bredere enn containeren */
+    display: block;
+  }
+
+  .tekst {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+  }
+
+  .h33 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  /*produkter ferdig*/
+}
