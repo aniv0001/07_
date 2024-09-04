@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  background-color: rgb(255, 242, 224);
 }
 img {
   width: 100%;
@@ -8,14 +9,22 @@ img {
   padding-bottom: 3rem;
   padding-top: 0.2rem;
 }
+.mainNav h1 span {
+  display: inline-block;
+  transform: scaleX(-1) translateX(-0.2rem);
+  /* color: var(--off-color); */
+}
+.R {
+  color: #e80000;
+}
 /********** MENU *********/
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: rgb(138, 210, 255);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 242, 224);
+  /* box-shadow: 0 0 10px #0000001a; */
 }
 
 .logo img {
@@ -46,14 +55,14 @@ nav {
 .menu a {
   display: block;
   padding: 10px;
-  color: #333;
+  color: #e80000;
   text-decoration: none;
   transition: color 0.3s;
   text-align: end;
 }
 
 .menu a:hover {
-  color: rgb(255, 72, 133);
+  color: rgb(0, 0, 0);
 }
 
 .burger {
@@ -117,11 +126,11 @@ nav {
 
 /* produkter*/
 @media (min-width: 750px) {
-  .box-produkter {
+  /* .box-produkter {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Fire like store kolonner */
-    gap: 20px; /* Avstand mellom produktene */
-  }
+    grid-template-columns: repeat(4, 1fr); /* Fire like store kolonner 
+  gap: 20px; /* Avstand mellom produktene 
+  } */
 
   .image-container {
     position: relative;
@@ -159,33 +168,23 @@ nav {
   img {
     width: 100%;
   }
-  .bilde_puma {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    padding-top: 1rem;
-  }
-
-  .grid_1-1 {
+  .grid_1_1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .bilde_meg {
+  .produkt_bilde {
+    /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+    width: 40%;
+    padding-top: 1rem;
     grid-column: 1;
-    grid-row: 1;
-    margin-top: 0rem;
-  }
-  .h1 {
     grid-column: 1;
-    grid-row: 1;
   }
 
-  .tekst_puma {
-    grid-column: 1;
+  .grid_tekst {
+    grid-column: 2;
     grid-row: 1;
-    padding-top: 8.7rem;
-    padding-left: 0.5rem;
   }
   /*produkt ferdig*/
   /*kategorier*/
@@ -202,7 +201,7 @@ nav {
   .box6 {
     width: 200px;
     height: 100px;
-    background-color: #42d6ff;
+    background-color: #e80000;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -216,12 +215,13 @@ nav {
   .box3 a,
   .box2 a,
   .box1 a {
-    color: rgb(22, 24, 185);
+    color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
     opacity: 1;
     transition: opacity 0.5s;
+    background-color: #e80000;
   }
   .box5:hover a,
   .box6:hover a,
@@ -230,7 +230,7 @@ nav {
   .box2:hover a,
   .box1:hover a {
     opacity: 1;
-    color: palevioletred;
+    color: black;
   }
   /*kategorier ferdig*/
 }
@@ -318,13 +318,13 @@ nav {
   /*produkt ferdig*/
 
   /*produkter*/
-  .box-produkter {
+  /* .box-produkter {
     display: grid;
     grid-template-columns: 1fr;
 
     justify-content: center;
     align-items: center;
-  }
+  } */
 
   .image-container {
     position: relative;
@@ -358,4 +358,63 @@ nav {
   }
 
   /*produkter ferdig*/
+}
+
+/*ProductList*/
+.productlist main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 290px));
+  gap: 2rem;
+}
+.productlist main h2 {
+  grid-column: 1/-1;
+}
+.productlist article h3 {
+  font-size: 1rem;
+  flex-grow: 3;
+}
+.productlist article > * {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.subtle {
+  color: var(--text-decoration-color);
+}
+.productlist article {
+  display: flex;
+  flex-direction: column;
+}
+.productlist article.soldOut img {
+  opacity: 0.5;
+}
+.productlist article.soldOut::before {
+  content: "Sold Out";
+  position: absolute;
+  background: var(--color);
+  color: var(--background-color);
+  padding: 1rem;
+}
+.productlist article .discounted,
+.productlist article .price span {
+  display: none;
+}
+.productlist article.onSale .discounted {
+  display: flex;
+  justify-content: space-between;
+}
+.discounted > p {
+  margin-bottom: 0;
+}
+.productlist article.onSale .price span {
+  display: initial;
+}
+.productlist article button {
+  margin-top: auto;
+}
+.productlist article {
+  margin-bottom: 1rem;
+}
+.discounted p:last-child {
+  background: var(--off-color);
+  padding: 0.2rem;
 }
